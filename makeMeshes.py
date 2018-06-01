@@ -1,5 +1,5 @@
 from skimage import measure
-
+import skvideo.io
 import numpy as np
 import os
 
@@ -9,7 +9,13 @@ import os
 @click.argument('spacing', type=tuple, help='Spacing of the slices in (Z,X,Y) format, defaults to (6,1,1)')
 @click.argument('-o', '--output', type=str, help='Output name for the OBJ file')
 @click.option('-v', '--video', help='Make mask from video input', is_flag=True)
+@click.option('-m', '--multiple', help='Multiple masks in input', is_flag=True)
 def make_mesh(mask, step_size, spacing, output, yes, video):
+
+    if video:
+        # Need to convert video to 3D mask
+        mask = skvideo.io.vread(mask)
+
     verts, faces, normals, values = measure.marching_cubes_lewiner(mask, spacing=spacing, step_size=step_size)
     print("Verticies: " + str(len(verts)))
 
