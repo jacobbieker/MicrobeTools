@@ -1,6 +1,12 @@
 # MicrobeTools
 Various scripts to convert data to work with the MicrobeVisualization Software
 
+# Installation
+
+1. ```git clone https://github.com/jacobbieker/MicrobeTools.git```
+2. ```cd``` into the directory
+3. ```pip install -r requirements```
+4. Use it! 
 
 # Instructions
 
