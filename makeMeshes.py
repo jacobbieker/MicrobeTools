@@ -23,7 +23,7 @@ def make_mesh(mask, step_size, spacing, output, video, multiple):
 
     verts, faces, normals, values = measure.marching_cubes_lewiner(mask, spacing=(6.,1.,1.), step_size=step_size)
     print("Verticies: " + str(len(verts)))
-
+    faces= faces+1
     thefile = open(output, 'w')
     for item in verts:
         thefile.write("v {0} {1} {2}\n".format(item[0], item[1], item[2]))
