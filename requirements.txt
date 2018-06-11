@@ -1,4 +1,4 @@
 numpy
 sk-video
 click
-skimage
+scikit-image

@@ -18,7 +18,7 @@ def make_mesh(mask, step_size, spacing, output, video, multiple):
         mask = skvideo.io.vread(mask)[:, :, :, 0]
         print(mask.shape)
     else:
-        mask = np.load(mask)
+        mask = np.load(mask)['images']
         print(mask.shape)
 
     verts, faces, normals, values = measure.marching_cubes_lewiner(mask, spacing=(6.,1.,1.), step_size=step_size)
